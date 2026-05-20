@@ -2,6 +2,16 @@
 
 Aplicación CRUD de productos desarrollada con Spring Boot 3, Thymeleaf y PostgreSQL. Contenedorizada con Docker multi-stage y desplegada en Railway.
 
+## Capturas de pantalla
+
+| Vista | Captura |
+|-------|---------|
+| Pantalla de inicio | ![Home](docs/home.png) |
+| Nuevo producto | ![Nuevo](docs/new.png) |
+| Editar producto | ![Editar](docs/edit.png) |
+| Eliminar producto | ![Eliminar](docs/delete.png) |
+| Cambios guardados | ![Cambios](docs/changes.png) |
+
 ## Construir la imagen Docker localmente
 
 ```bash
