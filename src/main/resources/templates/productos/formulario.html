@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulario</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        background: #f4f7fc;
+      }
+      .container {
+        max-width: 560px;
+        margin: 2rem auto;
+        background: #fff;
+        border-radius: 12px;
+        padding: 1.2rem;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      }
+      label {
+        display: block;
+        margin-top: 0.8rem;
+      }
+      input {
+        width: 100%;
+        padding: 0.6rem;
+        border: 1px solid #d4dde8;
+        border-radius: 8px;
+        margin-top: 0.25rem;
+      }
+      .btn {
+        margin-top: 1rem;
+        padding: 0.6rem 0.9rem;
+        border-radius: 8px;
+        border: 0;
+        background: #0d6efd;
+        color: #fff;
+      }
+      .btn-sec {
+        margin-top: 1rem;
+        display: inline-block;
+        text-decoration: none;
+        background: #6c757d;
+        color: #fff;
+        padding: 0.6rem 0.9rem;
+        border-radius: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1
+        th:text="${modo == 'crear'} ? 'Nuevo producto' : 'Editar producto'"
+      ></h1>
+
+      <form
+        th:action="@{/productos/guardar}"
+        th:object="${producto}"
+        method="post"
+      >
+        <input type="hidden" th:field="*{id}" />
+
+        <label>Nombre</label>
+        <input
+          type="text"
+          th:field="*{nombre}"
+          title="Nombre"
+          placeholder="Nombre del producto"
+          required
+        />
+
+        <label>Descripción</label>
+        <input
+          type="text"
+          th:field="*{descripcion}"
+          title="Descripción"
+          placeholder="Descripción del producto"
+          required
+        />
+
+        <label>Precio</label>
+        <input
+          type="number"
+          step="0.01"
+          min="0"
+          th:field="*{precio}"
+          title="Precio"
+          placeholder="0.00"
+          required
+        />
+
+        <button class="btn" type="submit">Guardar</button>
+        <a class="btn-sec" th:href="@{/productos}">Cancelar</a>
+      </form>
+    </div>
+  </body>
+</html>
